@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="gameNameLbl" layoutX="48.0" layoutY="27.0" text="GameName" AnchorPane.leftAnchor="40.0">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Label>
+      <ImageView fx:id="gameImg" fitHeight="209.0" fitWidth="251.0" layoutX="327.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="gameDescriptionLbl" alignment="TOP_LEFT" layoutX="47.0" layoutY="95.0" prefHeight="210.0" prefWidth="277.0" text="GameDescription" wrapText="true" AnchorPane.leftAnchor="40.0" />
+      <Label layoutX="48.0" layoutY="340.0" prefHeight="18.0" prefWidth="38.0" text="Price:" AnchorPane.leftAnchor="40.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="gamePriceLbl" layoutX="78.0" layoutY="340.0" prefHeight="18.0" prefWidth="73.0" text="PriceValue">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label layoutX="216.0" layoutY="340.0" prefHeight="18.0" prefWidth="38.0" text="Genre:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="gameGenreLbl" layoutX="263.0" layoutY="340.0" prefHeight="18.0" prefWidth="73.0" text="GenreValue">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="dark-blue-tab" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@css/main.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField id="dark-blue-field" fx:id="nameTxtF" layoutX="42.0" layoutY="33.0" prefHeight="26.0" prefWidth="516.0" promptText="game name" stylesheets="@css/main.css" />
+      <TextArea id="dark-blue-area" fx:id="descriptionTxtA" layoutX="42.0" layoutY="77.0" prefHeight="200.0" prefWidth="516.0" promptText="game description" stylesheets="@css/main.css" />
+      <TextField id="dark-blue-field" fx:id="priceTxtF" layoutX="42.0" layoutY="292.0" promptText="price" stylesheets="@css/main.css" />
+      <Button id="dark-blue-button" fx:id="saveGameBtn" layoutX="467.0" layoutY="341.0" mnemonicParsing="false" onAction="#saveGameAct" prefHeight="26.0" prefWidth="90.0" stylesheets="@css/main.css" text="Save Game" />
+      <ChoiceBox id="dark-blue-box" fx:id="genresDropDwn" layoutX="257.0" layoutY="292.0" prefWidth="150.0" stylesheets="@css/main.css" />
+      <Label layoutX="214.0" layoutY="296.0" text="Genre:" />
+   </children>
+</AnchorPane>

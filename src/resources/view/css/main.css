@@ -1,0 +1,85 @@
+#white-label {
+    -fx-text-fill: white;
+}
+
+#dark-blue-listview {
+    -fx-background-color: #5a6882;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+#dark-blue-listview .list-cell {
+    -fx-background-color: #5a6882;
+    -fx-text-fill: white;
+}
+
+#dark-blue-listview .list-cell:even {
+    -fx-background-color: #444e61;
+}
+
+#dark-blue-listview .list-cell:filled:hover {
+    -fx-background-color: #00465e;
+}
+
+#dark-blue-field {
+    -fx-background-color: #5a6882;
+    -fx-text-fill: white;
+}
+
+#dark-blue-area .content{
+    -fx-background-color: #5a6882;
+    -fx-text-fill: white;
+}
+
+#dark-blue-area {
+    -fx-text-fill: white;
+}
+
+#dark-blue-box {
+    -fx-background-color: #5a6882;
+    -fx-text-fill: white;
+}
+
+#dark-blue-box .context-menu {
+    -fx-background-color: #5a6882;
+}
+
+#dark-blue-box .menu-item:focused {
+    -fx-background-color: #00465e;
+}
+
+#dark-blue-box .menu-item > .label {
+    -fx-text-fill: white;
+}
+
+#dark-blue-box > .label {
+    -fx-text-fill: white;
+}
+
+#dark-blue-box .menu-item:focused > .label {
+    -fx-text-fill: white;
+}
+
+#dark-blue-tab {
+    -fx-background-color:
+        #5a6882,
+        linear-gradient(#5a6882 0%, #08737f 20%, #2a4858 100%),
+        linear-gradient(#20262b, #191d22),
+        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+}
+
+#dark-blue-button {
+    -fx-background-color:
+        #090a0c,
+        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
+        linear-gradient(#20262b, #191d22),
+        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 5,4,3,5;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 12px;
+    -fx-padding: 1 1 1 1;
+}
