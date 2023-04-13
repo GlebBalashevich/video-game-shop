@@ -1,58 +1,62 @@
 package com.ekids.shop.processor;
 
 import java.io.EOFException;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.ekids.shop.model.Game;
+import com.ekids.shop.util.ComponentPath;
 
 public class GameFileProcessor {
 
-    private static final String GAMES_PATH = "src/resources/games";
+    private static final String USER_HOME = "user.home";
 
     public List<Game> readGames() {
         List<Game> games = new ArrayList<>();
-        File file = new File(GAMES_PATH);
         try {
-            file.createNewFile();
-            FileInputStream fileInputStream = new FileInputStream(file);
+            Path filePath = buildPath();
+            createFileIfNotExists(filePath);
+            FileInputStream fileInputStream = new FileInputStream(filePath.toFile());
             games = readObjectsFromFile(fileInputStream);
-            return games;
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+        } catch (IOException | ClassNotFoundException | URISyntaxException e) {
+            //stub
         }
         return games;
     }
 
     public void saveGames(List<Game> games) {
         try {
-            FileOutputStream fileOutputStream = new FileOutputStream(GAMES_PATH);
+            FileOutputStream fileOutputStream = new FileOutputStream(buildPath().toFile());
             writeObjectsToFile(fileOutputStream, games);
-        } catch (IOException e) {
+        } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
         }
     }
 
     private List<Game> readObjectsFromFile(FileInputStream fileInputStream) throws IOException, ClassNotFoundException {
         List<Game> games = new ArrayList<>();
-        ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-        while (true) {
-            try {
+        try {
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            while (true) {
                 Object object = objectInputStream.readObject();
                 if (object instanceof Game) {
                     games.add((Game) object);
+                } else {
+                    break;
                 }
-            } catch (EOFException e) {
-                break;
             }
+        } catch (EOFException e) {
+            //stub
         }
-        objectInputStream.close();
         return games;
     }
 
@@ -62,6 +66,17 @@ public class GameFileProcessor {
             objectOutputStream.writeObject(game);
         }
         objectOutputStream.close();
+    }
+
+    private void createFileIfNotExists(Path filePath) throws IOException {
+        if (!filePath.toFile().exists()) {
+            Files.createDirectories(filePath.getParent());
+            Files.createFile(filePath);
+        }
+    }
+
+    private Path buildPath() throws URISyntaxException {
+        return Paths.get(System.getProperty(USER_HOME), ComponentPath.GAMES_PATH);
     }
 
 }

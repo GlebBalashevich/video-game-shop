@@ -2,6 +2,7 @@ package com.ekids.shop.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 import com.ekids.shop.controller.impl.GameAddController;
 import com.ekids.shop.controller.impl.GameEditController;
@@ -13,9 +14,10 @@ import com.ekids.shop.exception.GameException;
 import com.ekids.shop.model.Genre;
 import com.ekids.shop.service.GameService;
 import com.ekids.shop.util.Message;
-import com.ekids.shop.util.TabPath;
+import com.ekids.shop.util.ComponentPath;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class GameControllerMediator {
@@ -32,6 +34,8 @@ public class GameControllerMediator {
 
     private final PopupMessageController popupMessageController;
 
+    private final Image icon;
+
     public GameControllerMediator(GameService gameService) {
         this.gameService = gameService;
         this.gameAddController = new GameAddController(this);
@@ -39,10 +43,12 @@ public class GameControllerMediator {
         this.gameShowController = new GameShowController(this);
         this.shopController = new ShopController(this);
         this.popupMessageController = new PopupMessageController(this);
+        this.icon = new Image(Objects.requireNonNull(getClass().getResourceAsStream(ComponentPath.ICON_PATH)));
     }
 
     public void loadMainScene(Stage primaryStage) {
-        Scene scene = loadScene(TabPath.SHOP_TAB_PATH, shopController);
+        Scene scene = loadScene(ComponentPath.SHOP_TAB_PATH, shopController);
+        primaryStage.getIcons().add(icon);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -57,7 +63,7 @@ public class GameControllerMediator {
     }
 
     public void initAddGame() {
-        Scene scene = loadScene(TabPath.SAVE_GAME_TAB_PATH, gameAddController);
+        Scene scene = loadScene(ComponentPath.SAVE_GAME_TAB_PATH, gameAddController);
         showScene(scene);
     }
 
@@ -73,7 +79,7 @@ public class GameControllerMediator {
     }
 
     public void initEditGame(GameDto gameDto) {
-        Scene scene = loadScene(TabPath.SAVE_GAME_TAB_PATH, gameEditController);
+        Scene scene = loadScene(ComponentPath.SAVE_GAME_TAB_PATH, gameEditController);
         if (gameDto != null) {
             gameEditController.initEditData(gameDto);
             showScene(scene);
@@ -105,7 +111,7 @@ public class GameControllerMediator {
     }
 
     public void showGameDetails(GameDto gameDto) {
-        Scene scene = loadScene(TabPath.SHOW_GAME_TAB_PATH, gameShowController);
+        Scene scene = loadScene(ComponentPath.SHOW_GAME_TAB_PATH, gameShowController);
         gameShowController.initShowData(gameDto);
         showScene(scene);
     }
@@ -115,7 +121,7 @@ public class GameControllerMediator {
     }
 
     private void publishMessage(String message) {
-        Scene scene = loadScene(TabPath.POPUP_MESSAGE_TAB_PATH, popupMessageController);
+        Scene scene = loadScene(ComponentPath.POPUP_MESSAGE_TAB_PATH, popupMessageController);
         popupMessageController.initMessageData(message);
         showScene(scene);
     }
@@ -133,6 +139,7 @@ public class GameControllerMediator {
 
     private void showScene(Scene scene) {
         Stage stage = new Stage();
+        stage.getIcons().add(icon);
         stage.setScene(scene);
         stage.show();
     }
