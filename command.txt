@@ -1,4 +1,0 @@
- cd C:\Users\Gleb_Balashevich\IdeaProjects\video-game-shop\out\artifacts\video_game_shop_jar
-
-
- jpackage -t exe --name "Video Game Shop" --description "Managing Video Games catalog for online shop" --app-version 1.0 --input "C:\Users\Gleb_Balashevich\IdeaProjects\video-game-shop\out\artifacts\video_game_shop_jar" --dest "C:\Users\Gleb_Balashevich\Desktop" --main-jar "video-game-shop.jar" --module-path "C:\Program Files\Java\javafx-jmods-20" --add-modules javafx.controls,javafx.fxml --win-shortcut --icon "icon.ico"
