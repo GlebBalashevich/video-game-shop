@@ -61,10 +61,10 @@ public class GameService {
             if (game.getName() != null && !game.getName().isBlank()) {
                 shouldAdd = game.getName().toLowerCase().contains(gameName.toLowerCase());
             }
-            if (genre != null) {
+            if (shouldAdd && genre != null) {
                 shouldAdd = game.getGenre() == genre;
             }
-            if (minPrice > 0 && maxPrice > 0) {
+            if (shouldAdd && minPrice > 0 && maxPrice > 0) {
                 shouldAdd = game.getPrice() >= minPrice && game.getPrice() <= maxPrice;
             }
             if (shouldAdd) {

@@ -25,7 +25,7 @@ public class GameValidator {
         if (gameDto.getGenre() == null) {
             throw new GameException(Message.VALIDATION_EMPTY_GENRE);
         }
-        if (gameDto.getPrice() == null && gameDto.getPrice().isBlank()) {
+        if (gameDto.getPrice() == null || gameDto.getPrice().isBlank()) {
             throw new GameException(Message.VALIDATION_EMPTY_PRICE);
         }
         validatePrice(gameDto.getPrice());
